@@ -1,6 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#e8f5e9"
+    android:padding="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Consulta de Alumnos"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#388e3c"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Barra de búsqueda -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <EditText
+                android:id="@+id/searchInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:hint="Buscar por número de control, nombre o correo..."
+                android:padding="8dp"
+                android:textSize="14sp" />
+
+
+            <Button
+                android:id="@+id/btnSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Buscar"
+                android:onClick="buscarAlumno"
+                android:backgroundTint="#388e3c"
+                android:textColor="#FFFFFF" />
+
+
+            <Button
+                android:id="@+id/btnClear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Limpiar"
+                android:onClick="limpiarBusqueda"
+                android:backgroundTint="#388e3c"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <!-- Tabla de alumnos -->
+        <TableLayout
+            android:id="@+id/alumnosTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:background="#FFFFFF"
+            android:elevation="4dp">
+
+            <!-- Cabecera -->
+            <TableRow android:background="#388e3c">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Num Control"
+                    android:textColor="#FFFFFF"
+                    android:padding="12dp"
+                    android:gravity="center" />
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre"
+                    android:textColor="#FFFFFF"
+                    android:padding="12dp"
+                    android:gravity="center" />
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Correo"
+                    android:textColor="#FFFFFF"
+                    android:padding="12dp"
+                    android:gravity="center" />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/noResultsText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No se encontraron registros"
+            android:textColor="#388e3c"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp" />
+    </LinearLayout>
+</ScrollView>
